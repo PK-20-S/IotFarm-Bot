@@ -4,8 +4,8 @@ ESP8266WebServer server;
 #include "dht.h"
 
 //Access point Credentials
-const char username[]="FARM-E";
-const char password[]="7338899824";
+const char username[]="iFarm";
+const char password[]="Praneeshkumar";
 
 SoftwareSerial NodeMCU(D5,D6);
 
@@ -55,7 +55,7 @@ void temperature()
 }
 void sensor()
 {
-  String d="<!DOCTYPE html><html><h1><center><head><title>FARM-E</title></head><body>Humidity= hum Temperature= temp<br><form></body></form></center></h1></html>";
+  String d="<!DOCTYPE html><html><h1><center><head><title>iFarm</title></head><body>Humidity= hum Temperature= temp<br><form></body></form></center></h1></html>";
   temperature();
   d.replace("temp",String(temp));
   d.replace("hum",String(hum));
@@ -65,7 +65,7 @@ void sensor()
 void Mode()
 
 {
-String m="<!DOCTYPE html><html><h1><center><head><title>FARM-E</title></head><body>Plantation Robot<br><button type=\"submit\" name =\"state\" value=\"0\">FARME</button><form><br><button type=\"submit\" name =\"state\" value=\"1\">AUTO</button><br><br><button type=\"submit\" name =\"state\" value=\"2\">FORWARD</button><button type=\"submit\" name =\"state\" value=\"3\">REVERSE</button><br><br><button type=\"submit\" name =\"state\" value=\"4\">LEFT</button><button type=\"submit\" name =\"state\" value=\"5\">RIGHT</button><br><br><button type=\"submit\" name =\"state\" value=\"6\">SUMP</button><br><br><button type=\"submit\" name =\"state\" value=\"7\">FUNNEL</button><br><br><button type=\"submit\" name =\"state\" value=\"8\">SWEEP1</button><button type=\"submit\" name =\"state\" value=\"9\">SWEEP2</button><br><br><button type=\"submit\" name =\"state\" value=\"10\">MANUAL</button><br><br><button type=\"submit\" name=\"state\" value=\"11\">STOP</button><form></body></form></center></h1></html>";
+String m="<!DOCTYPE html><html><h1><center><head><title>iFarm</title></head><body>Plantation Robot<br><button type=\"submit\" name =\"state\" value=\"0\">FARME</button><form><br><button type=\"submit\" name =\"state\" value=\"1\">AUTO</button><br><br><button type=\"submit\" name =\"state\" value=\"2\">FORWARD</button><button type=\"submit\" name =\"state\" value=\"3\">REVERSE</button><br><br><button type=\"submit\" name =\"state\" value=\"4\">LEFT</button><button type=\"submit\" name =\"state\" value=\"5\">RIGHT</button><br><br><button type=\"submit\" name =\"state\" value=\"6\">SUMP</button><br><br><button type=\"submit\" name =\"state\" value=\"7\">FUNNEL</button><br><br><button type=\"submit\" name =\"state\" value=\"8\">SWEEP1</button><button type=\"submit\" name =\"state\" value=\"9\">SWEEP2</button><br><br><button type=\"submit\" name =\"state\" value=\"10\">MANUAL</button><br><br><button type=\"submit\" name=\"state\" value=\"11\">STOP</button><form></body></form></center></h1></html>";
 
 server.send(404,"text/html",m); //send my html
 if (server.arg("state")=="1") //If state=1
